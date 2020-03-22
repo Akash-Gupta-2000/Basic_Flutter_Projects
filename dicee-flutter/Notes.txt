@@ -1,0 +1,35 @@
+Expanded(
+            child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Image.asset('images/dice1.png'),
+          ),
+          ),
+
+Expanded(
+            child: FlatButton(
+              onPressed: () {
+                print('Left Button');
+              },
+              child: Image.asset('images/dice1.png'),
+            ),
+          ),
+
+dynamic data type is used to change the value of another type to a variable.
+
+stateless vs stateful widgets.
+
+Use $ variable to acess variable inside string.
+
+Use setstate() inside onPressed() for reflected the changes occured on onPressed.
+
+Expanded(
+            child: FlatButton(
+              onPressed: () {
+                setState(() {
+                  leftDice = Random().nextInt(6) + 1;
+                  rightDice = Random().nextInt(6) + 1;
+                });
+              },
+              child: Image.asset('images/dice$leftDice.png'),
+            ),
+          ),

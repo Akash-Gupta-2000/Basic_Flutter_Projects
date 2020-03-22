@@ -1,0 +1,16 @@
+void updateColor(Gender gender) {
+    if (gender == Gender.male) {
+      if (maleCardColor == inactiveCardColor) {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inactiveCardColor;
+      } else
+        maleCardColor = inactiveCardColor;
+    }
+    if (gender == Gender.female) {
+      if (femaleCardColor == inactiveCardColor) {
+        femaleCardColor = activeCardColor;
+        maleCardColor = inactiveCardColor;
+      } else
+        femaleCardColor = inactiveCardColor;
+    }
+  }
