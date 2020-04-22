@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -33,27 +34,43 @@ class _DicePageState extends State<DicePage> {
   }
 
   Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: FlatButton(
-              onPressed: () {
-                changeDice();
-              },
-              child: Image.asset('images/dice$leftDice.png'),
+    return ListView(
+      children: <Widget>[
+        SizedBox(
+          height: 120,
+        ),
+        Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Image.asset('images/dice$leftDice.png'),
+                ),
+                Expanded(
+                  child: Image.asset('images/dice$rightDice.png'),
+                ),
+              ],
             ),
-          ),
-          Expanded(
-            child: FlatButton(
-              onPressed: () {
-                changeDice();
-              },
-              child: Image.asset('images/dice$rightDice.png'),
+            SizedBox(
+              height: 50,
             ),
-          ),
-        ],
-      ),
+            FlatButton(
+              color: Colors.lightBlueAccent,
+              padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              onPressed: changeDice,
+              child: Text(
+                'Roll Dice',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+            )
+          ],
+        ),
+      ],
     );
   }
 }
